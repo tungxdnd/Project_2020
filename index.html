@@ -372,15 +372,15 @@
 							<form class="form__register" action="" method="post" autocomplete="off">
 								<div class="form-group">
 									<label for="">Họ và tên</label>
-									<input class="form-control" name="full_name" type="text" value="">
+									<input class="form-control" required name="full_name" id="full_name" type="text" value="">
 								</div>
 								<div class="form-group">
 									<label for="">Số điện thoại</label>
-									<input class="form-control" name="phone" type="text" value="">
+									<input class="form-control" required name="phone" id="phone" type="text" value="">
 								</div>
 								<div class="form-group">
 									<label for="">Email</label>
-									<input class="form-control" name="email" type="text" value="">
+									<input class="form-control" required name="email" id="email" type="email" value="">
 								</div>
 								<div class="form-group list__checkbox--box">
 									<p>Bạn quan tâm đến hộp</p>
@@ -401,12 +401,20 @@
 								</div>
 								<div class="form-group">
 									<label for="">Yêu cầu bổ sung</label>
-									<input class="form-control" name="message" type="text" value="">
+									<input class="form-control"  name="message" type="text" value="">
 								</div>
-								<button class="wow fadeInUp submit__form">
+								<button class="wow fadeInUp submit__form" type="button">
 									<span class="submit__form--span text-uppercase">Tư vấn cho tôi</span>
 									<span class="icon__double"><i class="fas fa-angle-double-right"></i></span>
 								</button>
+								<div class="popup__box overlay">
+									<div class="popup">
+										<a class="close" href="javascript:void(0);">&times;</a>
+										<div class="content">
+											Đăng ký tư vấn thành công
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 					</div>
@@ -580,6 +588,18 @@
 				}
 				
 			});
+			var $email = $('#email').val(),
+			 $phone = $('#phone').val(),
+			 $full_name = $('#full_name').val();
+
+		 	$('.submit__form').click(function(){
+		 		//if ($full_name!= '' && $phone != '' && $email != '') {
+		 		$('.popup__box').show();
+		 		//}
+		 	});
+		 	$('.popup .close').click(function(){
+		 		$('.popup__box').hide();
+		 	});
 		});
 		
 
